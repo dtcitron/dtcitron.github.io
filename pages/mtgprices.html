@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Template Name: Corporation
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Magic Card Price Distributions</title>
+
+<!--google analytics script -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-58110355-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
+</head>
+<body id="top">
+<div class="wrapper col1">
+  <div id="head">
+<!--
+    <h1><a href="../index.html">Daniel T. Citron</a></h1>
+    <p>PhD Candidate, Cornell University Physics</p>
+    <div id="topnav">
+      <ul>
+        <li><a href="../index.html">About Me</a></li>
+        <li><a href="research.html">Projects</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a class="active" href="other.html">Other</a></li>
+-->
+    </div>
+  </div>
+</div>
+<!--
+<div class="wrapper col2">
+  <div id="breadcrumb">
+    <ul>
+      <li class="first">You Are Here</li>
+      <li>&#187;</li>
+      <li><a href="../index.html">Home</a></li>
+      <li>&#187;</li>
+      <li><a href="other.html">Other</a></li>
+      <li>&#187;</li>
+      <li class="current"><a href="mtgprices.html"><i>Magic: the Gathering</i>&trade; Card Price Distribution</a></li>
+    </ul>
+  </div>
+</div>
+-->
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+
+
+<h1> <i>Magic: the Gathering</i>&trade; Card Price Distribution </h1>
+<p>
+I started becoming interested in <i>Magic: The Gathering</i>&trade; card finance a few months ago.  I don't have nearly enough business savvy to follow financial news, but I know enough about M:TG to be able to understand what's going on in the tiny financial microcosm of trading cards (and the insightful analysis from sites like <a href="http://www.mtgstocks.com/">MTGStocks.com</a> and <a href="http://www.mtgprice.com/">MTGPrice.com</a>).
+</p>
+<!-- <p>
+M:TG is an expensive hobby, especially if one has a competitive bent or generally prefers to be playing with the most powerful cards.  M:TG finance is the art of trading for value, speculating, and investing intelligently in cards.  Ideally, one can be continually shifting one's card collection to react to (or anticipate) changes in market prices such that the collection accumulates value without having to invest much additional cash.
+</p> -->
+<p>
+One thing I noticed while doing some research into Magic prices was how there is a small set of cards that have very high prices - Power Nine, Tarmogoyf, Wasteland, Force of Will - but the vast, vast majority of cards cost less than a dollar.  I decided to take a step back and look at the distribution of card prices - not just looking at individual cards, but the probability distribution of prices for all cards.
+</p>
+<p>
+I took advantage of the <a href="https://deckbrew.com/api/">DeckBrew API</a>, which gives easy access to the current median prices over at <a href="tcgplayer.com">TCGPlayer.com</a>.  I first obtained this data set in January 2015 (pre-Fate Reforged, pre-bannings). That being said, I only have card prices from a single day - I do not currently have access to time series data from TCGPlayer. (As of recently the DeckBrew API's price information is unavailable, otherwise I could have taken multiple snapshots of card price distributions at different times.)  
+</p>
+
+<p>I examined the median price data for cards from all sets except for reprint sets such as Commander, Duel Decks, promotional cards (Judge, DCI, FNM, etc), and Modern Masters.  I also excluded cards from Alpha and Beta, whose prices are artificially inflated due to their extreme rarity. I ignored the prices of foils.  I also ignored basic lands (with the few exceptions of full-art lands or certain promos, these are all worth about the same).
+</p>
+
+<p>
+Here's what I found: if you plot a histogram of the median prices of all cards (including multiple printed versions), you get a graph that looks like this:
+</p>
+<div class = "holder">
+    <center>
+    <a href = "../images/mtgprices/All_card_medprices_linear.pdf"><div class = "imgholder"><img src = "../images/mtgprices/All_card_medprices_linear.png" alt="Click to enlarge" width="60%" align="center"/>
+    </div>
+    </a>
+    </center>
+</div>
+
+<p>
+Out of the 18,000 or so individual Magic cards printed, only 2155 are worth more than $1, only 422 are worth more than $10, and only 52 are worth more than $100.  This jibes with the initial observation that there are a great many cards worth very little, but a small number of cards with enormous prices.
+</p>
+
+<p>
+Re-plotting the same data set on a logarithmic scale, it becomes clearer just how vast the range of card prices is, as well as how there are far fewer very expensive cards than inexpensive cards.
+</p>
+
+<div class = "holder">
+    <center>
+    <a href = "../images/mtgprices/All_card_medprices_loglog.pdf"><div class = "imgholder"><img src = "../images/mtgprices/All_card_medprices_loglog.png" alt="Click to enlarge" width="60%" align="center"/>
+    </div>
+    </a>
+    </center>
+</div>
+
+<p>
+Distributions like these, that are heavily skewed, are sometimes referred to as having "heavy tails."  This means that there are cards of all prices, but that there are many fewer higher-priced cards than lower-priced ones.  The majority of cards ever printed are cheap, a small subgroup is expensive, and an even small subgroup is even more expensive than that.
+</p>
+
+<p>
+If you're curious, here are the cards sitting way out in the tail of the distribution:
+</p>
+<p>
+<table border="1" align="center">
+  <caption> <b>The Usual Suspects</b> </caption>
+  <tr>
+    <td> <a href = "http://www.mtgstocks.com/cards/15770"><img src="../images/mtgprices/blacklotus_unl.jpeg" width = "95%"> </a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/15754"><img src="../images/mtgprices/recall_unl.jpeg" width = "95%"> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/15928"><img src="../images/mtgprices/moxsapphire_unl.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/15925"><img src="../images/mtgprices/moxjet_unl.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/15924"><img src="../images/mtgprices/moxemerald_unl.jpeg" width = "95%"></a> </td>    
+  </tr>
+  <tr> 
+    <td><center><p>Black Lotus</p><p>Unlimited</p><p>$5000</p></center></td>
+    <td><center><p>Ancestral Recall</p><p>Unlimited</p><p>$1850</p></center></td>
+    <td><center><p>Mox Sapphire</p><p>Unlimited</p><p>$1500</p></center></td>
+    <td><center><p>Mox Jet</p><p>Unlimited</p><p>$1400</p></center></td>
+    <td><center><p>Mox Emerald</p><p>Unlimited</p><p>$1275</p></center></td>
+  </tr>
+</table>
+</p>
+
+<p>
+It might be fair to think that rarity is what gives rise to the right end of the distribution.  Here's what the price distribution looks like with only rares (and mythic rares) included:
+</p>
+
+<div class = "holder">
+    <center>
+    <a href = "../images/mtgprices/rares.pdf"><div class = "imgholder"><img src = "../images/mtgprices/rares.png" alt="Click to enlarge" width="60%" align="center"/>
+    </div>
+    </a>
+    </center>
+</div>
+
+<p>
+The shape of the distribution is largely unchanged (many of the least expensive cards have been removed from the left-hand side), particularly out in the right-hand tail.  So yes, the heavy tail of the price distribution shown above is mostly made up of rare cards.  Even so, there is still a heavy skew, with the vast majority of all rare cards being worth very little.  It isn't enough to say that the skewed distribution of all card prices shown above comes from the price differences due to rarity alone.
+</p>
+
+<p> What about the prices of commons and uncommons?  We can produce similar plots for both of those cases and find that the heavy tails are still there!</p>
+
+<div class = "holder">
+    <center>
+    <a href = "../images/mtgprices/uncommon.pdf"><div class = "imgholder"><img src = "../images/mtgprices/uncommon.png" alt="Click to enlarge" width="50%" align="left"/></div></a>
+    
+    <a href = "../images/mtgprices/common.pdf"><div class = "imgholder"><img src = "../images/mtgprices/common.png" alt="Click to enlarge" width="50%" align="right"/>
+    </div>
+    </a>
+    </center>
+</div>
+</p>
+
+<p> Take note that the extent of the rightmost tails of these price distributions - they are not nearly as extended as the tails for the rares. The commons in particular have a very short tail, with very few of them coming close to $10.</p>
+
+<p>
+<table border="1" align="center">
+  <caption> <b>Printed at Uncommon? Mistakes Were Made</b> </caption>
+  <tr>
+    <td> <a href = "http://www.mtgstocks.com/cards/11943"><img src="../images/mtgprices/library.jpeg" width = "95%"> </a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/11896"><img src="../images/mtgprices/bazaar.jpeg" width = "95%"> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/18175"><img src="../images/mtgprices/recruiter.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/prints/11647"><img src="../images/mtgprices/mana_drain.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/11621"><img src="../images/mtgprices/karakas.jpeg" width = "95%"></a> </td>    
+  </tr>
+  <tr> 
+    <td><center><p>Library of Alexandria</p><p>Arabian Nights</p><p>$383</p></center></td>
+    <td><center><p>Bazaar of Baghdad</p><p>Arabian Nights</p><p>$371</p></center></td>
+    <td><center><p>Imperial Recruiter</p><p>Portal: Three Kingdoms</p><p>$278</p></center></td>
+    <td><center><p>Mana Drain</p><p>Legends</p><p>$200</p></center></td>
+    <td><center><p>Karakas</p><p>Legends</p><p>$148</p></center></td>
+  </tr>
+</table>
+</p>
+
+<p> Again, for those of you who are interested, these are the most expensive uncommons and commons.  The uncommon heavy tail is made up of Vintage and Legacy staples, many of which have been re-assigned rare status for Vintage Masters on MTGO.</p>
+
+<p>
+<table border="1" align="center">
+  <caption> <b>Not-so-common</b> </caption>
+  <tr>
+    <td> <a href = "http://www.mtgstocks.com/cards/18250"><img src="../images/mtgprices/three_visits.jpeg" width = "95%"> </a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/15987"><img src="../images/mtgprices/sinkhole.jpeg" width = "95%"> </td>
+    <td> <a href = "http://www.mtgstocks.com/prints/18156"><img src="../images/mtgprices/false_defeat.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/prints/11520"><img src="../images/mtgprices/chain_lightning.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/11955"><img src="../images/mtgprices/oubliette.jpeg" width = "95%"></a> </td>    
+  </tr>
+  <tr> 
+    <td><center><p>Three Visits</p><p>Portal: Three Kingdoms</p><p>$36</p></center></td>
+    <td><center><p>Sinkhole</p><p>Unlimited</p><p>$26</p></center></td>
+    <td><center><p>False Defeat</p><p>Portal: Three Kingdoms</p><p>$18</p></center></td>
+    <td><center><p>Chain Lightning</p><p>Legends</p><p>$15</p></center></td>
+    <td><center><p>Oubliette</p><p>Arabian Nights</p><p>$10</p></center></td>
+  </tr>
+</table>
+</p>
+
+<p>The most expensive commons, on the other hand, are dominated by <a href = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=2579&type=card">functional</a> <a href ="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=13112&type=card">reprints</a> from Portal: Three Kingdoms and other cards prized for their scarcity - of the top five only Chain Lightning sees regular play anymore.  (Not shown here: #6 and #7 on the list are Serum Visions and Portal 2 Sleight of Hand, and this was before the <a href ="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=397728&type=card">disappointment</a> of MM15.)
+</p>
+
+<p> It appears that in the case of uncommon and rare cards, the highest-price cards are ones that are in high demand for Vintage and Legacy and that also are hard to come by due to relative rarity.  The expensive commons, in a similar vein, are dominated by collectible cards from hard-to-find sets like Portal. Why don't we see whether in general the heavy tails of these price distributions come from scarcity alone by ignoring these kinds of cards: Let's look at the set of cards playable in Modern and Standard only. </p>
+
+<div class = "holder">
+    <center>
+    <a href = "../images/mtgprices/modern.pdf"><div class = "imgholder"><img src = "../images/mtgprices/modern.png" alt="Click to enlarge" width="60%" align="center"/>
+    </div>
+    </a>
+    </center>
+</div>
+
+<p>
+<table border="1" align="center">
+  <caption> <b>Priciest Modern-legal cards (as of January 2015)</b> </caption>
+  <tr>
+    <td> <a href = "http://www.mtgstocks.com/prints/3494"><img src="../images/mtgprices/goyf.jpeg" width = "95%"> </a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/4637"><img src="../images/mtgprices/confidant.jpeg" width = "95%"> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/3033"><img src="../images/mtgprices/clique.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/2137"><img src="../images/mtgprices/hierarch.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/prints/1844"><img src="../images/mtgprices/tarn.jpeg" width = "95%"></a> </td>    
+  </tr>
+  <tr> 
+    <td><center><p>Tarmogoyf</p><p>Future Sight</p><p>$180</p></center></td>
+    <td><center><p>Dark Confidant</p><p>Ravnica</p><p>$78</p></center></td>
+    <td><center><p>Vendilion Clique</p><p>Morningtide</p><p>$69</p></center></td>
+    <td><center><p>Noble Hierarch</p><p>Conflux</p><p>$66</p></center></td>
+    <td><center><p>Scalding Tarn</p><p>Zendikar</p><p>$55</p></center></td>
+  </tr>
+</table>
+</p>
+
+<p> For the price distribution of Standard-legal cards, I have plotted two distributions.  The upper curve includes all printings of all Standard-legal cards and the lower curve includes only the most recent printings.  (I differentiate between the two simply because including previous printings means that the six most expensive cards in pre-Fate Reforged Standard were the Onslaught fetch lands and Thoughtseize from Llorwyn.)  Compared to the card pools available to Vintage/Legacy and even Modern, there are very few cards allowed in Standard.  Despite this, we still do see a skew in the price distribution, with a few expensive (>$20) cards but most cards inexpensive (<$5).
+</p>
+
+<div class = "holder">
+    <center>
+    <a href = "../images/mtgprices/standard.pdf"><div class = "imgholder"><img src = "../images/mtgprices/standard.png" alt="Click to enlarge" width="60%" align="center"/>
+    </div>
+    </a>
+    </center>
+</div>
+
+<p>
+<table border="1" align="center">
+  <caption> <b>Priciest Standard-legal cards (as of January 2015)</b> </caption>
+  <tr>
+    <td> <a href = "http://www.mtgstocks.com/cards/22891"><img src="../images/mtgprices/brimaz.jpeg" width = "95%"> </a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/21415"><img src="../images/mtgprices/elspeth3.jpeg" width = "95%"> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/25259"><img src="../images/mtgprices/nissa.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/21407"><img src="../images/mtgprices/thoughtseize.jpeg" width = "95%"></a> </td>
+    <td> <a href = "http://www.mtgstocks.com/cards/25599"><img src="../images/mtgprices/strand.jpeg" width = "95%"></a> </td>    
+  </tr>
+  <tr> 
+    <td><center><p>Brimaz, King of Oreskos</p><p>Born of the Gods</p><p>$25</p></center></td>
+    <td><center><p>Elspeth, Sun's Champion</p><p>Theros</p><p>$20</p></center></td>
+    <td><center><p>Nissa, Worldwaker</p><p>M15</p><p>$19</p></center></td>
+    <td><center><p>Thoughtseize</p><p>Theros</p><p>$19</p></center></td>
+    <td><center><p>Flooded Strand</p><p>Khans of Tarkir</p><p>$19    </p></center></td>
+  </tr>
+</table>
+</p>
+
+<h1>Closing Thoughts</h1>
+
+<p>And now for some speculation about the data presented above: Wizards of the Coast, in printing Magic cards, <a href="http://www.npr.org/sections/money/2015/03/11/392381112/episode-609-the-curse-of-the-black-lotus">essentially works like a central bank</a>.  They carefully control the supply of what cards are available to customers.  Knowing this, it almost makes me wonder whether the heavy-tailed distribution of card prices is actually a benefit to the customer that in turn helps WotC maximize their profits.
+</p>
+
+<p>Consider three different players who all are building decks for EDH.  Some players want to build a Legacy-esque goodstuff deck that runs Duals and all kinds of other pricey high-powered cards.  Other players are content to just buy the preconstructed decks and play them out of the box.  Even other players just cobble together a pile of 100 cards leftover from FNM drafts.</p>
+
+<p>Because of the way card pricing works, all three of these players will be able to play EDH together.  The extended, heavy-tailed price distribution allows for participation of players who only have a few extra dollars alongside the players willing to sink thousands a year into the game.  This makes the game more inclusive and fun for customers, but it also allows WotC to retain as many customers as they can. WotC has no direct control over the market prices of cards, I'd be surprised if they didn't keep a close eye on those prices in order to keep card prices accessible to as many customers as they can.
+</p>
+
+<p>For the future, I am particularly interested in seeing how card price distributions change over time.  Having only a single snapshot of the price distributions does illustrate how variable magic card prices are as well as how expensive cards tend to be outliers.  Seeing how, if at all, price distributions change over time could also give some additional insights into players' willingness to pay to play in various formats.  In particular, for Standard (and Modern, to a lesser extent) it would be interesting to see how the rightmost part of the tail changes in price over time.  It would also be interesting to see statistically how cards that become <a href="http://www.mtgstocks.com/cards/27680">popular after early release hype</a> is over rise to replace cards in the tail of the distribution that were <a href="http://www.mtgstocks.com/cards/25748">hyped and discovered to be useless</a>.
+</p>
+
+<p>If there are any economists out there who study price distributions, I'd love to help make this data set available to study questions as to what gives rise to the heavy tail in the price distribution for a product like Magic cards.  There are lots of variables that go into determining card pricing, and trying to differentiate between them could be an interesting exercise.  To what extent does the rarity of a card's printing relative to other cards affect its pricing?  To what extent are prices correlated between cards, and does this lead to price inflation (e.g.: PainterStone)?  To what extent is the heavy tail inflated due to "<a href="http://en.wikipedia.org/wiki/Superstar#Economics_of_.22superstars.22">superstar</a>" effects?
+</p>
+
+<p>(Special thanks to Arjen over at MTGStocks.com, who turned me on to the DeckBox API!)</p>
+
+<p><small>All Magic: the Gathering images and descriptions &#169; Wizards of the Coast, Hasbro </small> </p>
+
+<!--
+<p>
+To a complete outsider, this might seem strange.  After all, shouldn't relative scarcity dictate the prices of cards?  Ignoring mythics, one might look inside an average booster and assume that every common is printed 10 times as much as a given rare, and each uncommon is printed 3 times as much as a given rare.  If we assume that each booster is worth $4 retail, then every common should be worth about $.14, every uncommon should be worth $.42, and every rare should be worth $1.38 (.14x10 + .42x3 + 1.38x1 = $4).
+</p>
+<p>
+Of course, those of us who play the game know that what drives the prices of individual cards is far more complicated than simply relative scarcity of cards released by the publisher.
+</p>
+
+<p> Speculate about the source of the skew - superstar effect: being the marginally better card gives one an immense demand over all other cards
+Having dual lands is the price of entry into legacy - the next best cards just aren't good enough to be competitive (and similarly with tarmogoyf)
+
+Why is the tail "heavy?" Why not just a handful of cards being outrageously priced and all others being fairly cheap?  Speculate: This is due to COMBINATIONS of cards being important, not just single cards.  Black lotus thought experiment.
+
+This is really good for wizards: they can capture all consumers according to willingness to pay, from the people who shell out thousands to people who are content to pack war a couple times with the latest sets.
+</p>
+-->
+
+
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<!-- ### Put contact information here -->
+<div class="wrapper col5">
+  <div id="footer">
+      <div id="compdetails">
+      <div id="contactdetails">
+<!--        <h2>Contact Details</h2>
+        <ul>
+          <li>Cornell University Department of Physics</li>
+          <li>Clark Hall</li>
+          <li>Ithaca, NY 14853</li>
+          <li><b>Email Me: 
+            <script language="JavaScript">
+            var username = "dtc65";
+            var hostname = "cornell.edu";
+            var linktext = username + "@" + hostname ;
+            document.write("<a href='" + "mail" + "to:" + username + "@" + hostname + "'>" + linktext + "</a>"); </script></b>
+          </li>
+        </ul>
+-->
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+</div>
+</body>
+</html>

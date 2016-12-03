@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Template Name: Corporation
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Daniel T. Citron | Cornell University Physics </title>
+
+<!--google analytics script -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-58110355-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!-- Script for toggling (hide/show) text using jquery -->
+<!-- taken from http://www.w3schools.com/jquery/jquery_hide_show.asp -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+$(".flip").click(function(){
+$(".panel").toggle();
+});
+});
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="../../layout/styles/layout.css" type="text/css" />
+</head>
+<body id="top">
+<div class="wrapper col1">
+  <div id="head">
+    <h1><a href="../index.html">Daniel T. Citron</a></h1>
+    <p>PhD Candidate, Cornell University Physics</p>
+    <div id="topnav">
+      <ul>
+        <li><a href="../../index.html">About Me</a></li>
+        <li><a href="../research.html">Projects</a></li>
+        <li><a class="active" href="../teaching.html">Teaching</a></li>
+        <li><a href="../other.html">Other</a></li>
+    </div>
+  </div>
+</div>
+
+
+<!-- Password stuff
+Borrowed from http://www.htmlhelpcentral.com/messageboard/showthread.php?11344-Password-Prompt-Javascript 
+Note: not actually secure!  Need to create security at the domain host level-->
+<script language="Javascript">
+<!--
+var password = "als6015spr2016"
+
+var x = prompt("Password"," ")
+
+if (x.toLowerCase() == password) {
+
+location = "index.html"
+}
+else {
+alert("Redirecting to homepage")
+
+location = "../../index.html "
+}
+//-->
+</script>
+
+<div class="wrapper col4">
+  <div id="container">
+    <div id ="content">
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<!-- ### Put contact information here -->
+<div class="wrapper col5">
+  <div id="footer">
+      <div id="compdetails">
+      <div id="contactdetails">
+        <h2>Contact Details</h2>
+        <ul>
+          <li>Cornell University Department of Physics</li>
+          <li>Clark Hall</li>
+          <li>Ithaca, NY 14853</li>
+          <li><b>Email Me: 
+            <script language="JavaScript">
+            var username = "dtc65";
+            var hostname = "cornell.edu";
+            var linktext = username + "@" + hostname ;
+            document.write("<a href='" + "mail" + "to:" + username + "@" + hostname + "'>" + linktext + "</a>"); </script></b>
+          </li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+</div>
+</body>
+</html>
