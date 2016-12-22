@@ -43,35 +43,147 @@ Licence URI: http://www.os-templates.com/template-terms
 
 <div class="wrapper col4">
   <div id="container">
-    <h1>Current Projects</h1>
-    <p><b>Stochastic Modeling of Disease Dynamics on Networks</b></p>
-    <p>Beginning in the Summer of 2013, I have worked on the Susceptible-Infected-Recovered-Susceptible (SIRS) model of infectious disease dynamics on networks. SIRS is a simple model in which susceptible individuals become sick by interacting with infected individuals.  Infected individuals develop immunity to the disease and recover, but over time they lose that immunity and become susceptible to the disease again.  Because recovered individuals are recycled back into the pool of susceptibles, the SIRS model supports a long-term active state representing endemic disease.</p>
-    <p>The major question that the SIRS model poses is when does a population support endemic disease, and when does endemic disease die out? In a stochastic model like this one, there are random fluctuations that may cause any endemic disease to die out spontaneously.  We have used moment-closure techniques taken from the study of stochastic processes to try and understand when these fluctuations are relevant.</p>
-    <p>Models of disease dynamics in which the population is fully mixed (with all individuals touching all others) are not always accurate, as they do not take into account that some individuals have many more contacts than others ("degree heterogeneity").  We are working on extending previous work on the stochastic SIRS model to determine how the structure of the network of contacts between individuals affects the population's ability to support endemic disease.</p>
-    <p>My poster on this topic titled "Accounting for Fluctuations in Stochastic SIRS Model on Networks" from the Advances in Discrete Networks workshop I attended at the University of Pittsburgh in December 2014 can be found <a href="DTCitron_SIRS_poster.pdf"><b>here</b></a></p>
-    <p><b>Simulating Stochastic Processes on Networks</b></p>
-    <p>I have developed a number of Python scripts for simulating our stochastic models of disease dynamics in fully mixed populations and on networks.  I have used these simulations extensively for exploring the stochastic SIRS model described above.</p>
+
+    <h1><b>Dynamical Processes on Networks</b></h1>
+    
+    <p><b>Network Heterogeneity and Spontaneous Extinction of Endemic Disease</b></p>
+    <p>Numerous studies have suggested that the structure of the contact network in a 
+    susceptible population is crucial for understanding the progression of an outbreak of 
+    disease, as well as suggesting strategies for combating epidemics.  In the context of 
+    recurrent or endemic disease, the notion of "critical community size" was introduced 
+    to explain why larger populations tend to sustain outbreaks for longer periods of time 
+    than smaller populations.  The random events that make up an epidemic- infection, 
+    recovery, migration- lead to stochastic fluctuations.  Smaller populations have larger 
+    fluctuations, making it more likely for a fluctuation to spontaneously send the number 
+    of infected individuals to zero.</p>
+    <p>The role of fluctuations and their relationship to spontaneous extinction is not yet 
+    understood in the context of contact networks: the contact networks underlying the 
+    interactions between different members of a population may vary dramatically between 
+    different types of populations.  How does a network's structure affect its potential 
+    for sustaining endemic diseases? I have used simulations in conjunction with 
+    analytical moment closure techniques to explore this question, and have found that a 
+    graph's structural heterogeneity can have significant effects on the size of
+    fluctuations and the rate of extinction.</p>
+    <p>My poster on this topic titled "Accounting for Fluctuations in Stochastic SIRS 
+    Model on Networks" from the Advances in Discrete Networks workshop I attended at the 
+    University of Pittsburgh in December 2014 can be found <a href="DTCitron_SIRS_poster.pdf">
+    <b>here</b></a></p>.  (Manuscript currently in preparation.)
+    
+
+    
+<!--    <p><b>Stochastic Modeling of Disease Dynamics on Networks</b></p>
+    <p>Beginning in the Summer of 2013, I have worked on the 
+    Susceptible-Infected-Recovered-Susceptible (SIRS) model of infectious 
+    disease dynamics on networks. SIRS is a simple model in which susceptible 
+    individuals become sick by interacting with infected individuals.  Infected 
+    individuals develop immunity to the disease and recover, but over time they lose 
+    that immunity and become susceptible to the disease again.  Because recovered 
+    individuals are recycled back into the pool of susceptibles, the SIRS model supports 
+    a long-term active state representing endemic disease.</p>
+    <p>The major question that the SIRS model poses is when does a population support 
+    endemic disease, and when does endemic disease die out? In a stochastic model like 
+    this one, there are random fluctuations that may cause any endemic disease to die 
+    out spontaneously.  We have used moment-closure techniques taken from the study of 
+    stochastic processes to try and understand when these fluctuations are relevant.</p>
+    <p>Models of disease dynamics in which the population is fully mixed (with all 
+    individuals touching all others) are not always accurate, as they do not take 
+    into account that some individuals have many more contacts than others ("degree 
+    heterogeneity").  We are working on extending previous work on the stochastic SIRS 
+    model to determine how the structure of the network of contacts between individuals 
+    affects the population's ability to support endemic disease.</p>
+-->
+    
+    <p><b>Simulating Disease Dynamics on Networks</b></p>
+    <p>I have developed a number of Python scripts for simulating stochastic models of 
+    disease dynamics in fully mixed populations and on networks.  I have used these 
+    simulations extensively for exploring the stochastic SIRS model described above.</p>
     <ul>
-      <li> <p> <b>gdy</b> - "Graph Dynamics" - This employs the networkx and scipy.sparse libraries in Python to perform fast simulations of SIR, SIRS, and SIS models on a networked population.  These simulations are carried out discrete time with synchronous updating as an approximation to the full continuous time Markov Chain model.</p> 
-      <p class="readmore"><a href="https://github.com/dtcitron/gdy"><b>Code on GitHub &raquo;</b></a></p></li>
       <li> <p> <b>sirs_gsp</b> - "SIRS Gillespie Dynamics" - This is an implementation of Gillespie's exact algorithm for fully mixed populations in Python.  I am currently working on implementing this same script with multi-threading in Julia, which I expect will make everything much faster.</p>
       <p class="readmore"><a href="https://github.com/dtcitron/sirs_gsp"><b>Code on GitHub &raquo;</b></a></p></li>
+      <li> <p> <b>gdy</b> - "Graph Dynamics" - This employs the networkx and scipy.sparse libraries in Python to perform fast simulations of SIR, SIRS, and SIS models on a networked population.  These simulations are carried out discrete time with synchronous updating as an approximation to the full continuous time Markov Chain model.</p> 
+      <p class="readmore"><a href="https://github.com/dtcitron/gdy"><b>Code on GitHub &raquo;</b></a></p></li>
     </ul>
 
-    <p> </p>
-    <h1>Past Projects</h1>
+
+    <h1><b>Structural Analysis of Networks</b></h1>
+
+    <p><b>Network Assembly of Scientific Collaborations</b></p>
+    <div class = "imgholder">
+      <img src = "../images/arxiv_assembly_small.jpeg" alt="" />
+    </div>    
+    <p> How do scientific fields develop?  How does the underlying social structure of
+    scientific research change as a little-known idea or discovery grows into a 
+    well-established new field?
+    </p>
+    <p>The <a href="http://dspace.mit.edu/handle/1721.1/50230" target="_blank"> 
+    work of David Kaiser and Luis Bettencourt</a> has shown that over time, 
+    as more researchers enter a new field 
+    and work with others, enough collaborative ties form such that the initial cohort of 
+    disjointed research groups joins together to form a giant, densely connected component.  
+    (One can see two examples of this process in the co-authorship networks of 
+    quantum computing and ultracold atoms, shown above.)  The densely connected component
+    formation represents social restructuring on a global scale, as scientists establish
+    new research groups; new collaborations develop; and the community agrees upon a set
+    of shared tools, techniques, and terminology for communicating ideas.
+    </p>
+    <p>How robust is this pattern?  To answer this question, I have used standard topic
+    modeling software (<a href="http://mallet.cs.umass.edu" target="_blank">Mallet</a>) to
+    sort the articles available on <a href="http://www.arxiv.org">the arXiv</a> according
+    to scientific subtopics.  I find that the majority of topics detected with Mallet 
+    reflect real, established scientific fields, and that for many of these topics we do
+    find the emergence of a densely connected giant component in the corresponding
+    co-authorship network.  These results are quantitative evidence of the social 
+    restructuring that occurs as scientific fields develop.
+    </p>
+    <p>This project began in collaboration with others as part of the 2015 <a href=
+    "https://www.santafe.edu/engage/learn/schools/sfi-complex-systems-summer-school" target="_blank">
+    Complex Systems Summer School</a> at the <a href="https://www.santafe.edu" target="_blank">
+    Santa Fe Institute.</a>  I presented a <a href="IC2S2_poster.pdf"><b>poster</b></a> 
+    on the subject at the <a href="http://www.kellogg.northwestern.edu/news-events/conference/ic2s2/2016.aspx"
+    target="_blank">2015 International Conference on Computational Social Science</a>.
+    (Manuscript currently in preparation.)
+    </p>
+
     <p><b>Measuring Text Reuse Patterns in Articles on arXiv.org</b></p>
-    <p>The arXiv is an online repository of scientific articles available publicly at <a href="http://www.arxiv.org"><b>arxiv.org</b></a>. At the time when this project began (Summer 2012), administrators of the arXiv had become increasingly aware of instances of authors repeatedly copying text from previously published material. This included cases of plagiarism as well as less egregious but still problematic cases of authors repeatedly submitting the same material with minor superficial changes. Needless to say, arXiv administrators were concerned about this reported behavior, and wanted to know more about the problem. How frequently did authors use copied material? Was copying behavior restricted to a particular subset of authors, or did everybody reuse text sometimes? Did articles featuring copied material garner much attention in terms of citations? </p>
-    <p> My role in the project was to compile the data into a format where it could be analyzed in a meaningful way.  I created a "text overlap network," in which nodes represented articles and edges represented pairwise text overlap between the two articles. In this new format the data could be easily visualized and explored using standard network analysis tools. This enabled us to answer a lot of questions regarding the behavior of the community of scientists submitting to arXiv. For example, we found that the vast majority of authors did not reuse text from others' articles, that instead only a few authors habitually reused text. We also discovered that articles containing a large amount of copied material tended to earn fewer citations, suggesting that these articles were produced on the fringes of the scientific community. </p>
-    <p>You can find an arXiv preprint of our paper <a href="http://arxiv.org/abs/1412.2716"><b>here</b></a> and the online version published in PNAS <a href="http://www.pnas.org/content/early/2014/12/04/1415135111.abstract"><b>here</b></a>.  This work was mentioned in <a href="http://news.sciencemag.org/scientific-community/2014/12/study-massive-preprint-archive-hints-geography-plagiarism"><b>a <i>Science</i> news article</b></a> as well as in <a href="http://www.theatlantic.com/technology/archive/2014/12/the-anti-plagiarism-machine/383949/"><b><i>The Atlantic</i></b></a>.  I presented on this topic as part of the 2013 STEM Graduate Student Summer Colloquium (slides <a href="DTCitron_arXiv_plagiarism.pdf"><b>here</b></a>).</p>
+    <div class = "imgholder">
+      <a href="../images/textoverlap.pdf" target="_blank">
+      <img src = "../images/textoverlap_small.jpeg" alt="" /></a>
+    </div>
+    
+    <p>The arXiv is an online repository of scientific articles available publicly at 
+    <a href="http://www.arxiv.org"><b>arxiv.org</b></a>. At the time when this project 
+    began (Summer 2012), administrators of the arXiv had become increasingly aware of 
+    instances of authors repeatedly copying text from previously published material. 
+    This included cases of plagiarism as well as less egregious but still problematic 
+    cases of authors repeatedly submitting the same material with minor superficial 
+    changes. Needless to say, arXiv administrators were concerned about this reported 
+    behavior, and wanted to know more about the problem. How frequently did authors use 
+    copied material? Was copying behavior restricted to a particular subset of authors, 
+    or did everybody reuse text sometimes? Did articles featuring copied material garner 
+    much attention in terms of citations? </p>
+    <p> My role in the project was to compile the data into a format where it could be 
+    analyzed in a meaningful way.  I created a "text overlap network," in which nodes 
+    represented articles and edges represented pairwise text overlap between the two 
+    articles. In this new format the data could be easily visualized and explored using 
+    standard network analysis tools. This enabled us to answer a lot of questions regarding 
+    the behavior of the community of scientists submitting to arXiv. For example, we 
+    found that the vast majority of authors did not reuse text from others' articles, 
+    that instead only a few authors habitually reused text. We also discovered that articles 
+    containing a large amount of copied material tended to earn fewer citations, suggesting 
+    that these articles were produced on the fringes of the scientific community. </p>
+    <p>You can find an arXiv preprint of our paper <a href="http://arxiv.org/abs/1412.2716"
+    target="_blank"><b>here</b></a> and the online version published in PNAS 
+    <a href="http://www.pnas.org/content/early/2014/12/04/1415135111.abstract" target="_blank">
+    <b>here</b></a>.  This work was mentioned in <a href="http://news.sciencemag.org/scientific-community/2014/12/study-massive-preprint-archive-hints-geography-plagiarism" target="_blank">
+    <b>a <i>Science</i> news article</b></a> as well as in <a href="http://www.theatlantic.com/technology/archive/2014/12/the-anti-plagiarism-machine/383949/" target="_blank">
+    <b><i>The Atlantic</i></b></a>.  In 2013, I presented on this topic as part of the STEM 
+    Graduate Student Summer Colloquium at Cornell University 
+    (slides <a href="DTCitron_arXiv_plagiarism.pdf"><b>here</b></a>).</p>
 
-<!--
-    <h1>Observing Community Formation through Term Adoption</h1>
-    <p>This project was inspired by the work of historian and physicist David Kaiser, who has <a href="http://web.mit.edu/dikaiser/www/DrawingTheoriesApart.html">studied the spread of the use of Feynman diagrams</a> as tools for calculation in physics. By carefully tracking the relationships between collaborators, Kaiser was able to trace the history of the adoption of Feynman diagrams. He argued that the early adoption of Feynman diagrams was spread only through close collaboration, such as mentor-student relationships.</p>
-    <p>The adoption of Feynman diagrams by the physics community serves as an example of how a community of researchers shares a common set of technical terminology for describing their work.  When a new area of research emerges following a new theory or discovery, those working on the topic will use those words in common.</p>
-    <p>I am attempting to  </p>
--->
 
+    <h1><b>Side Projects</b></h1>
+	<p> Coming soon -> link to other </p>
+  </div>
 </div>
 
 
