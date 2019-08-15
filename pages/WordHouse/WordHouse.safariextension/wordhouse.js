@@ -1,12 +1,12 @@
 // Adapted from the cloud-to-butt safari extension available at
 // https://github.com/panicsteve/cloud-to-butt
 
+
 walk(document.body);
 
 function walk(node) {
 	var child, next;
-	var rando = Math.random();
-	//var rn = rando;
+	var rando = Math.random()
 	
 //	if (node.tagName.toLowerCase() == 'input' || node.tagName.toLowerCase() == 'textarea'
 //	    || node.classList.indexOf('ace_editor') > -1) {
